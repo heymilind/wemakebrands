@@ -1,163 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We Make Brands - Coming Soon</title>
-<style>
-body, html {
-margin: 0;
-padding: 0;
-font-family: Arial, sans-serif;
-height: 100%;
-background-color: #2A3630;
-color: #F5F5DC;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.container {
-text-align: center;
-padding: 20px;
-position: relative;
-max-width: 600px;
-width: 100%;
-}
-h1 {
-font-size: 4rem;
-margin-bottom: 20px;
-line-height: 1.2;
-}
-p {
-font-size: 1.2rem;
-margin-bottom: 30px;
-opacity: 0.8;
-}
-.form-container {
-display: flex;
-justify-content: center;
-margin-bottom: 10px;
-}
-input[type="email"] {
-padding: 10px;
-font-size: 1rem;
-border: 1px solid rgba(255,255,255,0.2);
-background-color: rgba(255,255,255,0.1);
-color: #F5F5DC;
-border-radius: 4px 0 0 4px;
-width: 60%;
-}
-button {
-padding: 10px 20px;
-font-size: 1rem;
-background-color: #39FF14;
-border: none;
-color: black;
-cursor: pointer;
-border-radius: 0 4px 4px 0;
-transition: background-color 0.3s;
-}
-button:hover {
-background-color: #32D912;
-}
-.star {
-position: absolute;
-top: -60px;
-right: -60px;
-width: 120px;
-height: 120px;
-animation: pulse 3s infinite ease-in-out;
-}
-@keyframes pulse {
-0% {
-transform: scale(1);
-filter: drop-shadow(0 0 10px rgba(57,255,20,0.4));
-}
-50% {
-transform: scale(1.05);
-filter: drop-shadow(0 0 15px rgba(57,255,20,0.6));
-}
-100% {
-transform: scale(1);
-filter: drop-shadow(0 0 10px rgba(57,255,20,0.4));
-}
-}
-.message {
-margin-top: 10px;
-font-size: 0.9rem;
-opacity: 0.6;
-}
-.social-buttons {
-display: flex;
-justify-content: center;
-margin-top: 20px;
-}
-.social-button {
-color: #39FF14;
-margin: 0 10px;
-transition: all 0.3s ease;
-}
-.social-button:hover {
-color: #32D912;
-transform: scale(1.1);
-}
-.social-button svg {
-width: 24px;
-height: 24px;
-}
-@media (max-width: 768px) {
-h1 {
-font-size: 3rem;
-}
-.star {
-width: 80px;
-height: 80px;
-top: -40px;
-right: -20px;
-}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We Make Brands - Creating remarkable brand experiences">
+    <title>We Make Brands - Coming Soon</title>
+    <style>
+        :root {
+            --primary-color: #2A3630;
+            --accent-color: #39FF14;
+            --text-color: #F5F5DC;
+            --hover-color: #32D912;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #2A3630;
+            color: #F5F5DC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+
+        .star {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="email"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            background-color: rgba(255,255,255,0.1);
+            color: #F5F5DC;
+            border-radius: 4px 0 0 4px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #39FF14;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #32D912;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-button {
+            color: #39FF14;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            color: #32D912;
+            transform: scale(1.1);
+        }
+
+        .social-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            .star {
+                width: 60px;
+                height: 60px;
+                top: -15px;
+                right: -15px;
+            }
+            input[type="email"] {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .form-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            input[type="email"] {
+                width: 80%;
+                border-radius: 4px;
+            }
+            button {
+                width: 85%;
+                border-radius: 4px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<svg class="star" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M60 0L65 20L80 5L75 25L95 20L80 35L100 40L80 45L95 60L75 55L80 75L65 60L60 80L55 60L40 75L45 55L25 60L40 45L20 40L40 35L25 20L45 25L40 5L55 20L60 0Z" fill="#39FF14"/>
-</svg>
-<h1>WE MAKE BRANDS</h1>
-<p>Something exciting is coming. We're building a new way to create and grow remarkable brands.</p>
-<div class="form-container">
-<input type="email" id="email" placeholder="Enter your email" required>
-<button onclick="submitEmail()">Notify Me</button>
-</div>
-<div class="message">Be the first to know when we launch.</div>
-<div class="social-buttons">
-<a href="https://www.instagram.com/we.make.brands_" target="_blank" class="social-button">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-</svg>
-</a>
-<a href="https://www.linkedin.com/company/wemakebrands-xyz/" target="_blank" class="social-button">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-<rect x="2" y="9" width="4" height="12"></rect>
-<circle cx="4" cy="4" r="2"></circle>
-</svg>
-</a>
-</div>
-</div>
-<script>
-    function submitEmail() {
-        const email = document.getElementById('email').value;
-        if (email) {
-            alert(`Thank you! We'll notify ${email} when we launch.`);
-            document.getElementById('email').value = '';
-        } else {
-            alert('Please enter a valid email address.');
-        }
-    }
-</script>
+    <div class="container">
+        <h1>
+            WE MAKE BRANDS
+            <svg class="star" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 0L65 20L80 5L75 25L95 20L80 35L100 40L80 45L95 60L75 55L80 75L65 60L60 80L55 60L40 75L45 55L25 60L40 45L20 40L40 35L25 20L45 25L40 5L55 20L60 0Z" fill="#39FF14"/>
+            </svg>
+        </h1>
+        <p>Something exciting is coming. We're building a new way to create and grow remarkable brands.</p>
+        <div class="form-container">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button onclick="submitEmail()">Notify Me</button>
+        </div>
+        <div class="message">Be the first to know when we launch.</div>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/we.make.brands_" target="_blank" class="social-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/wemakebrands-xyz/" target="_blank" class="social-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+    </div>
 
+    <script>
+        function submitEmail() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Thank you! We'll notify ${email} when we launch.`);
+                document.getElementById('email').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
 </body>
 </html>
