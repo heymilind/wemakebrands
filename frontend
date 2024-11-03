@@ -1,0 +1,116 @@
+'use client'
+
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { toast } from "@/components/ui/use-toast"
+import { subscribeToList } from './actions'
+
+export default function Component() {
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    try {
+      const result = await subscribeToList(new FormData(e.target as HTMLFormElement))
+      toast({
+        title: result.success ? "Success!" : "Error",
+        description: result.message,
+        variant: result.success ? "default" : "destructive",
+      })
+      if (result.success) {
+        setEmail('')
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      })
+    }
+    
+    setIsSubmitting(false)
+  }
+
+  return (
+    <div className="min-h-screen bg-[#2A3630] flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      {/* Star */}
+      <div className="absolute top-[15%] right-[15%] md:right-[25%] lg:right-[30%]">
+        <svg 
+          width="80" 
+          height="80" 
+          viewBox="0 0 120 120" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="animate-pulse-subtle"
+        >
+          <path
+            d="M60 0L65 20L80 5L75 25L95 20L80 35L100 40L80 45L95 60L75 55L80 75L65 60L60 80L55 60L40 75L45 55L25 60L40 45L20 40L40 35L25 20L45 25L40 5L55 20L60 0Z"
+            fill="#39FF14"
+            className="drop-shadow-[0_0_10px_rgba(57,255,20,0.7)]"
+          />
+        </svg>
+      </div>
+
+      {/* Main content */}
+      <div className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-[#F5F5DC] leading-tight">
+          WE MAKE
+          <br />
+          BRANDS
+        </h1>
+        
+        <p className="text-lg md:text-xl text-[#F5F5DC]/80 max-w-xl mx-auto">
+          Something exciting is coming. We're building a new way to create and grow remarkable brands.
+        </p>
+
+        <div className="max-w-sm mx-auto space-y-2">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Button 
+              type="submit" 
+              className="bg-[#39FF14] text-black hover:bg-[#39FF14]/90"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Notify Me"}
+            </Button>
+          </form>
+          <p className="text-sm text-[#F5F5DC]/60">
+            Be the first to know when we launch.
+          </p>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes pulse-subtle {
+          0% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 10px rgba(57,255,20,0.4));
+          }
+          50% {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 15px rgba(57,255,20,0.6));
+          }
+          100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 10px rgba(57,255,20,0.4));
+          }
+        }
+        .animate-pulse-subtle {
+          animation: pulse-subtle 3s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  )
+}
